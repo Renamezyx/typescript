@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据格式提取</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</head>
+<style>
+    * {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+        font-weight: 400;
+    }
+
+    body {
+        margin: 0;
+        padding: 20px;
+    }
+
+    #app {
+        background-color: #FFF;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+    }
+
+
+    .left {
+        flex: 5;
+    }
+    .right {
+        flex: 5;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="main">
+            <div class="left">
+                <el-input type="textarea" :autosize="{ minRows: 13, maxRows: 13}" placeholder="请输入内容"
+                    v-model="str_data">
+                </el-input>
+
+            </div>
+            <div class="right">
+                <el-transfer v-model="value" :data="data" :titles="['Rules', 'Rules']"></el-transfer>
+            </div>
+        </div>
+        <div>
+            <el-col>
+                <el-card shadow="hover">
+                    {{res}}
+                </el-card>
+            </el-col>
+        </div>
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                str_data: '',
+                data: [{ key: 1, label: "选项一" }],
+                value: []
+            }
+        },
+        methods: {
+        }
+    })
+</script>
+
+</html>
